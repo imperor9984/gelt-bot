@@ -1,11 +1,5 @@
 """
-Gelt Telegram Bot — ИИ-ассистент (Groq, бесплатно)
-====================================================
-Зависимости:
-    pip install python-telegram-bot==20.7 groq python-dotenv
-
-Запуск:
-    python bot.py
+Gelt Telegram Bot — ИИ-ассистент (Groq, python-telegram-bot 21.x)
 """
 
 import os
@@ -210,22 +204,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(reply, reply_markup=back_kb(), parse_mode="Markdown")
 
-async def post_init(app: Application):
-    await app.bot.set_my_commands([
-        BotCommand("start",   "Главное меню"),
-        BotCommand("help",    "Помощь"),
-        BotCommand("modules", "Список уроков"),
-        BotCommand("about",   "О приложении Gelt"),
-        BotCommand("reset",   "Сбросить диалог"),
-    ])
-
 def main():
     if not BOT_TOKEN:
         raise ValueError("BOT_TOKEN не задан в .env!")
     if not GROQ_KEY:
         raise ValueError("GROQ_API_KEY не задан в .env!")
 
-    app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
+    app = Application.builder().token(BOT_TOKEN).build()
+
     app.add_handler(CommandHandler("start",   cmd_start))
     app.add_handler(CommandHandler("help",    cmd_help))
     app.add_handler(CommandHandler("reset",   cmd_reset))
