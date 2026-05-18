@@ -15,8 +15,8 @@ from groq import Groq
 load_dotenv()
 BOT_TOKEN   = os.getenv("BOT_TOKEN")
 GROQ_KEY    = os.getenv("GROQ_API_KEY")
-CHANNEL_URL = os.getenv("CHANNEL_URL", "https://t.me/gelt_app")
-APP_URL     = os.getenv("APP_URL", "https://gelt.app")
+CHANNEL_URL = os.getenv("CHANNEL_URL", "https://t.me/geltgolem")
+APP_URL     = os.getenv("APP_URL", "https://geltgolem.github.io/web")
 
 logging.basicConfig(format="%(asctime)s | %(levelname)s | %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -34,6 +34,16 @@ SYSTEM_PROMPT = """
 - Кириллица, офлайн-режим, соответствует ФГОС
 - 5 сердечек на модуль, XP за правильные ответы
 - Создано школьниками в 2025 году
+
+О команде Gelt:
+- Главный создатель — Imperor, 17 лет. Занимается программированием и много чем ещё.
+  Создал Gelt чтобы другие могли почувствовать тот кайф — когда долго работаешь,
+  что-то делаешь, и оно наконец работает. Придерживается принципа: скромность — сестра таланта,
+  поэтому лишнего о себе не рассказывает.
+- Enot — участник команды, отвечает за безопасность проекта.
+- Проект молодой, команда маленькая, но амбиции большие.
+- Если спрашивают о создателях — рассказывай коротко и с уважением,
+  не выдумывай детали которых нет выше.
 
 Модуль 1 — Pascal (5 уроков):
 1. Вывод данных — writeln/write, точка с запятой, строки в одинарных кавычках
